@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-toolbar>
+        <button menuToggle ion-button icon-only>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>
+            Materias
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <button ion-item *ngFor="let materia of materias" (click)="onDetallesMateria(materia)">
+            <h2>
+                {{ materia.nombre }}
+            </h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Molestiae dolor nesciunt dolore, esse excepturi nemo, atque doloribus.
+                A praesentium, doloremque, quibusdam esse, fugiat quas, obcaecati non
+                laboriosam ducimus natus vero. 
+            </p>
+        </button>
+    </ion-list>
+</ion-content>
