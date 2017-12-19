@@ -10,5 +10,68 @@
 </ion-header>
 
 <ion-content padding>
+    <ion-segment [(ngModel)]="info">
+        <ion-segment-button value="personal">
+            Personal
+        </ion-segment-button>
+        <ion-segment-button value="academico">
+            Académico
+        </ion-segment-button>
+    </ion-segment>
+    <div [ngSwitch]="info">
+        <div padding *ngSwitchCase="'personal'">
+            <div>
+                <h6>Nombre</h6>
+                <p>{{perfil[0].alumno}}</p>
+                <h6>Matricula</h6>
+                <p>{{perfil[0].matricula}} </p>
+                <h6>CURP</h6>
+                <p>{{perfil[0].curp}} </p>
+            </div>
 
+            <div>
+                <h6>Actualizar contraseña</h6>
+                <form #form="ngForm"  (ngSubmit)="cambiarContrasena(form.value)" novalidate>
+                    <ion-list>
+                        <ion-item>
+                            <ion-label floating>Contraseña actual</ion-label>
+                            <ion-input type="password" name="actual" ngModel required #actual="ngModel" [class.invalid]="actual.errors && actual.dirty"></ion-input>
+                        </ion-item>
+                        <ion-item class="error-message" *ngIf="actual.errors?.required && actual.dirty">
+                            Actual contraseña requerida
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label floating>Nueva contraseña</ion-label>
+                            <ion-input type="password" name="nueva" ngModel required #nueva="ngModel" [class.invalid]="nueva.errors && nueva.dirty"></ion-input>
+                        </ion-item>
+                        <ion-item class="error-message" *ngIf="nueva.errors?.required && nueva.dirty">
+                            Nueva contraseña requerida
+                        </ion-item>
+
+                        <div padding>
+                            <button ion-button color="primary" block type="submit" [disabled]="!form.valid">Actualizar</button>
+                        </div>
+                    </ion-list>
+                </form>
+            </div>
+        </div>
+
+        <div padding *ngSwitchCase="'academico'">
+            <div>
+                <h6>Semestre</h6>
+                <p>{{perfil[0].semestre}}</p> 
+                <h6>Grupo</h6>
+                <p>{{perfil[0].grupo}} </p>
+                <h6>Turno</h6>
+                <p>{{perfil[0].turno}} </p>
+                <h6>Bachillerato</h6>
+                <p>{{perfil[0].bachillerato}}</p>
+                <h6>Plantel</h6>
+                <p>{{perfil[0].plantel}} </p>
+                <h6>Periodo</h6>
+                <p>{{perfil[0].periodo}} </p>
+            </div>
+        </div>
+    </div>
 </ion-content>
