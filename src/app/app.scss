@@ -18,3 +18,9 @@
 .no-scroll .scroll-content{
     overflow: hidden;
 }
+
+$green-color: #1ac014;
+
+ion-toolbar {
+    background-color: green-color;
+}
