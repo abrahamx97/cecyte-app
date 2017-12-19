@@ -1,15 +1,82 @@
 <ion-header>
 
     <ion-navbar>
-        <ion-title>{{ materia.nombre }}</ion-title>
+        <ion-title>{{ materia.materia }}</ion-title>
     </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae dolor nesciunt dolore, esse excepturi nemo, atque doloribus.
-        A praesentium, doloremque, quibusdam esse, fugiat quas, obcaecati non laboriosam ducimus natus vero.
-    </p>
+    <div padding>
+        <h5>Docente</h5>
+        <p>
+            {{materia.docente}}
+        </p>
+    </div>
+
+    <div padding>
+        <h5>Calificaciones</h5>
+        <p>
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-12 col-lg-8 col-xl-6 class="grid-header">
+                        Parciales
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6 col-lg-4 col-xl-3>
+                        Parcial
+                    </ion-col>
+                    <ion-col col-6 col-lg-4 col-xl-3>
+                        Calificación
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6 col-lg-4 col-xl-3>
+                        Primero
+                    </ion-col>
+                    <ion-col col-6 col-lg-4 col-xl-3>
+                        {{materia.parcial1}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6 col-lg-4 col-xl-3>
+                        Segundo
+                    </ion-col>
+                    <ion-col col-6 col-lg-4 col-xl-3>
+                        {{materia.parcial2}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6 col-lg-4 col-xl-3>
+                        Tercero
+                    </ion-col>
+                    <ion-col col-6 col-lg-4 col-xl-3>
+                        {{materia.parcial3}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-12 col-lg-8 col-xl-6 class="grid-header">
+                        Promedio
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-12 col-lg-8 col-xl-6>
+                        {{materia.promedio}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-12 col-lg-8 col-xl-6 class="grid-header">
+                        Calificación final
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-12 col-lg-8 col-xl-6>
+                        {{materia.calificacion}}
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </p>
+    </div>
 </ion-content>
