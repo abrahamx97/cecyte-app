@@ -1,15 +1,8 @@
-<!--
-  Generated template for the LoginPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Login</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>Login</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
@@ -18,25 +11,23 @@
     <form #form="ngForm" (ngSubmit)="login(form.value)" novalidate>
         <ion-list>
             <ion-item>
-            <ion-label floating>Usuario</ion-label>
-            <ion-input type="text" name="usuario" ngModel required #usuario="ngModel"
-                        [class.invalid]="usuario.errors && usuario.dirty"></ion-input>
+                <ion-label floating>Usuario</ion-label>
+                <ion-input type="text" name="usuario" ngModel required #usuario="ngModel" [class.invalid]="usuario.errors && usuario.dirty"></ion-input>
             </ion-item>
             <ion-item class="error-message" *ngIf="usuario.errors?.required && usuario.dirty">
-            userame is required
+                Usuario requerido
             </ion-item>
-    
+
             <ion-item>
-            <ion-label floating>Contrasena</ion-label>
-            <ion-input type="contrasena" name="contrasena" ngModel required #contrasena="ngModel"
-                        [class.invalid]="contrasena.errors && contrasena.dirty"></ion-input>
+                <ion-label floating>Contraseña</ion-label>
+                <ion-input type="password" name="contrasena" ngModel required #contrasena="ngModel" [class.invalid]="contrasena.errors && contrasena.dirty"></ion-input>
             </ion-item>
             <ion-item class="error-message" *ngIf="contrasena.errors?.required && contrasena.dirty">
-            password is required
+                Contraseña requerida
             </ion-item>
-    
+
             <div padding>
-                <button ion-button color="primary" block type="submit" [disabled]="!form.valid">Login</button>
+                <button ion-button color="primary" block type="submit" [disabled]="!form.valid">Autenticar</button>
             </div>
         </ion-list>
     </form>
