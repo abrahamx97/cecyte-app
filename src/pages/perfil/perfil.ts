@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { HelperProvider } from '../../providers/helper/helper'
+import { AuthProvider } from '../../providers/auth/auth'
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { Storage } from "@ionic/storage";
-import * as bcrypt from "bcryptjs"; 
+import * as bcrypt from "bcryptjs";
 
 
 @IonicPage()
@@ -14,7 +15,13 @@ import * as bcrypt from "bcryptjs";
 export class PerfilPage {
     info: String = '';
     perfil: Array<any> = [];
-    constructor(public navCtrl: NavController, public navParams: NavParams, private helperProvider: HelperProvider, private readonly storage: Storage, private jwtHelper: JwtHelperService, private readonly toastCtrl: ToastController,) {
+
+
+    public type = 'password'
+    public showPass = false
+    public icon = 'md-eye'
+
+    constructor(public navCtrl: NavController, public navParams: NavParams, private helperProvider: HelperProvider, private readonly storage: Storage, private jwtHelper: JwtHelperService, private readonly toastCtrl: ToastController, private authProvider: AuthProvider) {
         this.storage.get('token').then(jwt => {
             if (jwt) {
                 let usuario = jwtHelper.decodeToken(jwt).usuario;
@@ -26,6 +33,18 @@ export class PerfilPage {
     ionViewDidLoad() {
     }
 
+    public showPassword() {
+        this.showPass = !this.showPass;
+
+        if (this.showPass) {
+            this.type = 'text';
+            this.icon = 'md-eye-off'
+        } else {
+            this.type = 'password';
+            this.icon = 'md-eye'
+        }
+    }
+
     getPerfil(usuario) {
         this.helperProvider.getPerfil(usuario).subscribe(
             response => {
@@ -33,12 +52,15 @@ export class PerfilPage {
                 this.info = 'personal'
             },
             error => {
-
+                if (error.status && error.status == 401) {
+                    this.authProvider.checkLoginPage()
+                }
             }
-        ) 
+        )
     }
-  
-    cambiarContrasena(values) {
+
+    cambiarContrasena(form) {
+        let values = form.value
         let datos = {
             contrasena: values.nueva
         }
@@ -53,30 +75,31 @@ export class PerfilPage {
                     position: 'bottom'
                 });
                 if (bcrypt.compareSync(contrasena, contrasena_actual)) {
-
                     this.helperProvider.cambiarContrasena(usuario, datos).subscribe(
                         response => {
                             let token = response.body['token']
                             this.storage.set('token', token).then(
-                                () => {
+                                () => { 
                                     toast.setMessage('Se guardaron cambios.')
-                                    
+                                    form.reset()
                                 }
                             ).catch(
-                                () => {
-                                    toast.setMessage('Error al guardar la contraseña en el dispositivo.')
-                                }
+                                () => { toast.setMessage('Error al guardar la contraseña en el dispositivo.') }
                                 )
                         },
                         error => {
-                            toast.setMessage('No se pudo guardar cambios.')
+                            if (error.status && error.status == 401) {
+                                this.authProvider.checkLoginPage()
+                            } else {
+                                toast.setMessage('No se pudo guardar cambios.')
+                            }
                         }
                     )
                 } else {
                     toast.setMessage('No se pudo validar la contraseña.')
                 }
 
-                toast.present()                
+                toast.present()
             }
         })
     }

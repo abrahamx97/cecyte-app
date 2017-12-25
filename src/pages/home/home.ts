@@ -21,13 +21,8 @@ export class HomePage {
     }
 
     ionViewDidLoad(){
-        // Add our nav controllers to
-        // the nav proxy service...
         this.navigatorProvider.masterNav = this.masterNav;
         this.navigatorProvider.detailNav = this.detailNav;
-
-        // set initial pages for
-        // our nav controllers...     
         this.masterNav.setRoot(MateriasPage, { detailNavCtrl: this.detailNav });
         this.detailNav.setRoot(PlaceholderPage);
     }

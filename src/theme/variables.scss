@@ -86,3 +86,32 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/Open_Sans/400/OpenSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: semi-bold;
+    font-weight: 600;
+    src: url('../assets/fonts/Open_Sans/600/OpenSans-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: bold;
+    font-weight: 700;
+    src: url('../assets/fonts/Open_Sans/700/OpenSans-Bold.ttf');
+}
+
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: extra-bold;
+    font-weight: 800;
+    src: url('../assets/fonts/Open_Sans/800/OpenSans-ExtraBold.ttf');
+}

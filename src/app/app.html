@@ -8,10 +8,10 @@
     <ion-content class="no-scroll" >
         <ion-list>
             <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" >
-                {{p.title}}
+                <ion-icon name="{{p.icon}}"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;{{p.title}} 
             </button>
             <button menuClose ion-item (click)="logout()">
-                Salir
+                <ion-icon name="log-out"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Salir
             </button>
         </ion-list>
     </ion-content>

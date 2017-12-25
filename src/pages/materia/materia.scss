@@ -1,7 +1,25 @@
 page-materia {
     .grid-header{
-        background: #33c9ee;
+        background: #52C2CB;
         display: flex;
         justify-content: center;
+        font-family: 'Open Sans' !important;
+        font-weight: 400 !important;
+        font-size: 15px;
+    }
+
+
+    .personal-inf{
+        h6 {
+            font-family: 'Open Sans' !important;
+            font-weight: 600 !important;
+            font-size: 16px;
+        }
+
+        p {
+            font-family: 'Open Sans' !important;
+            font-weight: 400 !important;
+            font-size: 14px;
+        }
     }
 }

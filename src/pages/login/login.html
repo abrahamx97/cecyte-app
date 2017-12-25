@@ -20,7 +20,10 @@
 
             <ion-item>
                 <ion-label floating>Contraseña</ion-label>
-                <ion-input type="password" name="contrasena" ngModel required #contrasena="ngModel" [class.invalid]="contrasena.errors && contrasena.dirty"></ion-input>
+                <ion-input type="{{type}}" name="contrasena" ngModel required #contrasena="ngModel" [class.invalid]="contrasena.errors && contrasena.dirty"></ion-input>
+
+                <button ion-button clear color="dark" icon-only type="button" item-right (click)="showPassword()"> <ion-icon name="{{icon}}"></ion-icon></button>
+               
             </ion-item>
             <ion-item class="error-message" *ngIf="contrasena.errors?.required && contrasena.dirty">
                 Contraseña requerida

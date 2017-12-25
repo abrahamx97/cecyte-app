@@ -18,9 +18,9 @@
             Académico
         </ion-segment-button>
     </ion-segment>
-    <div [ngSwitch]="info">
+    <div [ngSwitch]="info" class="personal-inf">
         <div padding *ngSwitchCase="'personal'">
-            <div>
+            <div >
                 <h6>Nombre</h6>
                 <p>{{perfil[0].alumno}}</p>
                 <h6>Matricula</h6>
@@ -29,24 +29,26 @@
                 <p>{{perfil[0].curp}} </p>
             </div>
 
-            <div>
+            <div style="padding-top: 28px">
                 <h6>Actualizar contraseña</h6>
-                <form #form="ngForm"  (ngSubmit)="cambiarContrasena(form.value)" novalidate>
-                    <ion-list>
+                <form #form="ngForm"  (ngSubmit)="cambiarContrasena(form)" novalidate >
+                    <ion-list class="no-padding-item">
                         <ion-item>
                             <ion-label floating>Contraseña actual</ion-label>
                             <ion-input type="password" name="actual" ngModel required #actual="ngModel" [class.invalid]="actual.errors && actual.dirty"></ion-input>
                         </ion-item>
                         <ion-item class="error-message" *ngIf="actual.errors?.required && actual.dirty">
-                            Actual contraseña requerida
+                            Campo requerido
                         </ion-item>
 
                         <ion-item>
                             <ion-label floating>Nueva contraseña</ion-label>
-                            <ion-input type="password" name="nueva" ngModel required #nueva="ngModel" [class.invalid]="nueva.errors && nueva.dirty"></ion-input>
+                            <ion-input type="{{type}}" name="nueva" ngModel required #nueva="ngModel" [class.invalid]="nueva.errors && nueva.dirty"></ion-input>
+
+                            <button ion-button clear color="dark" icon-only type="button" item-right (click)="showPassword()"> <ion-icon name="{{icon}}"></ion-icon></button>
                         </ion-item>
                         <ion-item class="error-message" *ngIf="nueva.errors?.required && nueva.dirty">
-                            Nueva contraseña requerida
+                            Campo requerido
                         </ion-item>
 
                         <div padding>
@@ -58,7 +60,7 @@
         </div>
 
         <div padding *ngSwitchCase="'academico'">
-            <div>
+            <div >
                 <h6>Semestre</h6>
                 <p>{{perfil[0].semestre}}</p> 
                 <h6>Grupo</h6>

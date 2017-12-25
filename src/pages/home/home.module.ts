@@ -9,10 +9,6 @@ import { PlaceholderPage } from '../'
 
 @NgModule({
   declarations: [
-    HomePage,
-    MateriasPage,
-    MateriaPage,
-    PlaceholderPage,    
   ],
   imports: [
     IonicPageModule.forChild(HomePage),

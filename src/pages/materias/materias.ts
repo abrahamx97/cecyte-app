@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NavigatorProvider } from '../../providers/navigator/navigator'
 import { HelperProvider } from '../../providers/helper/helper'
+import { AuthProvider } from '../../providers/auth/auth'
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { _MasterPage } from '../';
 import { MateriaPage } from '../'
@@ -16,7 +17,7 @@ export class MateriasPage extends _MasterPage {
 
     materias: Array<any> = [  ];
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, private navigatorProvider: NavigatorProvider, private helperProvider: HelperProvider, private readonly storage: Storage, jwtHelper: JwtHelperService) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, private navigatorProvider: NavigatorProvider, private helperProvider: HelperProvider, private readonly storage: Storage, jwtHelper: JwtHelperService, private authProvider: AuthProvider) {
         super();
         this.storage.get('token').then(jwt => {
             if(jwt){
@@ -36,7 +37,9 @@ export class MateriasPage extends _MasterPage {
                 this.materias=response.body['data']
             },
             error => {
-
+                if(error.status && error.status==401){
+                    this.authProvider.checkLoginPage()
+                }
             }
         )
     }

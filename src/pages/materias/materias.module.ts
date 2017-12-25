@@ -4,13 +4,11 @@ import { MateriasPage } from './materias';
 
 @NgModule({
   declarations: [
-    MateriasPage,
   ],
   imports: [
     IonicPageModule.forChild(MateriasPage),
   ],
   exports: [
-      MateriasPage,
   ]
 })
 export class MateriasPageModule {}

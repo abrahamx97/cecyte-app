@@ -16,7 +16,7 @@ export class MyApp {
     @ViewChild(Nav) nav: Nav;
 
     rootPage: any = null
-    pages: Array<{ title: string, component: any }>;
+    pages: Array<{ title: string, icon: string, component: any }>;
     authProvider: AuthProvider = null;
 
     constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, authProvider: AuthProvider) {
@@ -38,15 +38,13 @@ export class MyApp {
         authProvider.checkLogin();
 
         this.pages = [
-            { title: 'Inicio', component: HomePage },
-            { title: 'Perfil', component: PerfilPage }
+            { title: 'Materias', icon: 'book', component: HomePage },
+            { title: 'Perfil', icon: 'person', component: PerfilPage }
         ];
 
     }
 
     openPage(page) {
-        //console.log(`SE CAMBIARÁ A ${page.component.name}`)
-        //console.log(`ACTUAL ES ${this.nav.getActive().component.name}`)
         this.nav.setRoot(page.component);
     }
 

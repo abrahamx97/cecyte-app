@@ -10,6 +10,10 @@ import { AuthProvider } from '../../providers/auth/auth'
 })
 export class LoginPage {
 
+    protected type = 'password'
+    protected showPass = false
+    protected icon = 'md-eye'
+
     constructor(private readonly loadingCtrl: LoadingController, private readonly toastCtrl: ToastController, private authProvider: AuthProvider) {
     }
 
@@ -27,6 +31,18 @@ export class LoginPage {
             .subscribe(
             () => { },
             err => this.handleError(err));
+    }
+
+    protected showPassword() {
+        this.showPass = !this.showPass;
+
+        if (this.showPass) {
+            this.type = 'text';
+            this.icon = 'md-eye-off'
+        } else {
+            this.type = 'password';
+            this.icon = 'md-eye'
+        }
     }
 
     handleError(error: any) {

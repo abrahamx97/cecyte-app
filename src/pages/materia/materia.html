@@ -8,51 +8,43 @@
 
 
 <ion-content padding>
-    <div padding>
-        <h5>Docente</h5>
+    <div padding style="padding-bottom: 0px;" class="personal-inf"> 
+        <h6>Docente</h6>
         <p>
             {{materia.docente}}
         </p>
     </div>
 
     <div padding>
-        <h5>Calificaciones</h5>
+        <h6 class="title">Calificaciones</h6>
         <p>
             <ion-grid>
                 <ion-row>
                     <ion-col col-12 col-lg-8 col-xl-6 class="grid-header">
-                        Parciales
+                        Parciales y calificación
                     </ion-col>
                 </ion-row>
                 <ion-row>
-                    <ion-col col-6 col-lg-4 col-xl-3>
-                        Parcial
-                    </ion-col>
-                    <ion-col col-6 col-lg-4 col-xl-3>
-                        Calificación
-                    </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col col-6 col-lg-4 col-xl-3>
+                    <ion-col col-8 col-lg-6 col-xl-4>
                         Primero
                     </ion-col>
-                    <ion-col col-6 col-lg-4 col-xl-3>
+                    <ion-col col-4 col-lg-2 col-xl-2>
                         {{materia.parcial1}}
                     </ion-col>
                 </ion-row>
                 <ion-row>
-                    <ion-col col-6 col-lg-4 col-xl-3>
+                    <ion-col col-8 col-lg-6 col-xl-4>
                         Segundo
                     </ion-col>
-                    <ion-col col-6 col-lg-4 col-xl-3>
+                    <ion-col col-4 col-lg-2 col-xl-2>
                         {{materia.parcial2}}
                     </ion-col>
                 </ion-row>
                 <ion-row>
-                    <ion-col col-6 col-lg-4 col-xl-3>
+                    <ion-col col-8 col-lg-6 col-xl-4>
                         Tercero
                     </ion-col>
-                    <ion-col col-6 col-lg-4 col-xl-3>
+                    <ion-col col-4 col-lg-2 col-xl-2>
                         {{materia.parcial3}}
                     </ion-col>
                 </ion-row>

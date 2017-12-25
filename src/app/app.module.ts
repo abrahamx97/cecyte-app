@@ -22,15 +22,15 @@ import { HelperProvider } from '../providers/helper/helper';
 export function jwtOptionsFactory(storage: Storage) {
     return {
       tokenGetter: () => storage.get('token'),
-      whitelistedDomains: ['localhost:1337']
+      whitelistedDomains: ['192.168.0.10:1337']
     }
   }
 @NgModule({
   declarations: [
-    MyApp,
+    MyApp, 
     HomePage,
     PerfilPage,
-    MateriasPage,
+    MateriasPage, 
     MateriaPage,
     PlaceholderPage,
     LoginPage
