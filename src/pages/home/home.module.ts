@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { NavigatorProvider } from '../../providers/navigator/navigator'
 import { HomePage } from './home';
-import { MateriasPage } from '../'
-import { MateriaPage } from '../'
-import { PlaceholderPage } from '../'
+import { MateriasPage } from '../materias/materias' 
+import { MateriaPage } from '../materia/materia' 
+import { PlaceholderPage } from '../placeholder/placeholder' 
 
 
 @NgModule({

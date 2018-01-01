@@ -11,9 +11,9 @@ import {JWT_OPTIONS, JwtModule} from '@auth0/angular-jwt';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { PerfilPage } from '../pages/perfil/perfil';
-import { MateriasPage } from '../pages/'
-import { MateriaPage } from '../pages/'
-import { PlaceholderPage } from '../pages/'
+import { MateriasPage } from '../pages/materias/materias' 
+import { MateriaPage } from '../pages/materia/materia' 
+import { PlaceholderPage } from '../pages/placeholder/placeholder' 
 import { LoginPage } from '../pages/login/login';
 import { AuthProvider } from '../providers/auth/auth';
 import { NavigatorProvider } from '../providers/navigator/navigator';

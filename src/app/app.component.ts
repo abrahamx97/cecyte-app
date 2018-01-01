@@ -21,8 +21,10 @@ export class MyApp {
 
     constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, authProvider: AuthProvider) {
         platform.ready().then(() => {
+
             statusBar.styleDefault();
             splashScreen.hide();
+
         });
 
         this.authProvider = authProvider;

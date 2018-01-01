@@ -4,8 +4,8 @@ import { NavigatorProvider } from '../../providers/navigator/navigator'
 import { HelperProvider } from '../../providers/helper/helper'
 import { AuthProvider } from '../../providers/auth/auth'
 import { JwtHelperService } from "@auth0/angular-jwt";
-import { _MasterPage } from '../';
-import { MateriaPage } from '../'
+import { _MasterPage } from '../_MasterPage'; 
+import { MateriaPage } from '../materia/materia' 
 import { Storage } from "@ionic/storage";
 
 @IonicPage()
